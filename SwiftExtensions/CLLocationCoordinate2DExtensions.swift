@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import MapKit
 
 extension CLLocationDegrees {
 
@@ -53,6 +54,10 @@ public extension CLLocationCoordinate2D {
         latitude == 0.0 && longitude == 0.0
     }
 
+    func distance(to coordinate: CLLocationCoordinate2D) -> Double {
+        MKMapPoint(self).distance(to: MKMapPoint(coordinate))
+    }
+
     static func randomCoordinate() -> CLLocationCoordinate2D {
         let lat = CLLocationDegrees.random(in: CLLocationDegrees.minLatitude...CLLocationDegrees.maxLatitude)
         let lon = CLLocationDegrees.random(in: CLLocationDegrees.minLongitude...CLLocationDegrees.maxLongitude)
@@ -89,9 +94,9 @@ public extension Array where Iterator.Element: LocationCoordinate2D {
         var otherIterator = other.makeIterator()
         while let coordinate = iterator.next(),
               let otherCoordinate = otherIterator.next() {
-                let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                let otherLocation = CLLocation(latitude: otherCoordinate.latitude, longitude: otherCoordinate.longitude)
-                if location.distance(from: otherLocation) > 1.0 {
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let otherLocation = CLLocation(latitude: otherCoordinate.latitude, longitude: otherCoordinate.longitude)
+            if location.distance(from: otherLocation) > 1.0 {
                 return false
             }
         }
