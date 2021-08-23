@@ -64,15 +64,6 @@ public extension String {
         return results.map { String($0) }
     }
 
-    // Apple's current Swift String implementation is completely broken..
-    // WTF APPLE!
-    func stringByAddingPercentEncoding() -> String? {
-        let unreserved = "#%;<>?[\\]^`{|}"
-        let allowed = NSMutableCharacterSet.alphanumeric()
-        allowed.addCharacters(in: unreserved)
-        return addingPercentEncoding(withAllowedCharacters: allowed as CharacterSet)
-    }
-
     var sha256: String {
         let data = Data(utf8)
         var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
