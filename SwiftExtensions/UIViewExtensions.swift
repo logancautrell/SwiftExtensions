@@ -105,6 +105,17 @@ public extension UIView {
     }
 }
 
+// https://stackoverflow.com/a/50841615
+public extension UIView {
+    func rotate(degrees: CGFloat) {
+        rotate(radians: CGFloat.pi * degrees / 180.0)
+    }
+
+    func rotate(radians: CGFloat) {
+        self.transform = CGAffineTransform(rotationAngle: radians)
+    }
+}
+
 public extension UIStackView {
     func removeAllArrangedSubviews() {
         let removedSubviews = arrangedSubviews.reduce([]) { allSubviews, subview -> [UIView] in
