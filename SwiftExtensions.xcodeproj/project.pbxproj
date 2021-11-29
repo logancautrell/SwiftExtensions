@@ -60,6 +60,8 @@
 		B296DF6D228B5C7D00640AB1 /* MKMapRectExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF1E228B5C3E00640AB1 /* MKMapRectExtensionsTests.swift */; };
 		B296DF6F228B5C9400640AB1 /* CLLocationCoordinate2DExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF2C228B5C3E00640AB1 /* CLLocationCoordinate2DExtensionsTests.swift */; };
 		B296DF70228B5C9400640AB1 /* MKCoordinateRegionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF37228B5C3F00640AB1 /* MKCoordinateRegionExtensionsTests.swift */; };
+		B2A3811F27555A5F001C2939 /* ByteCountFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A3811E27555A5F001C2939 /* ByteCountFormatterExtensions.swift */; };
+		B2A3812127555A87001C2939 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A3812027555A87001C2939 /* FileManagerExtensions.swift */; };
 		B2AFE226234399860015AE79 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFE225234399860015AE79 /* CGRectExtensions.swift */; };
 		B2AFE22A2343ABCC0015AE79 /* CGRectExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFE2292343ABCC0015AE79 /* CGRectExtensionsTests.swift */; };
 		B2AFE6BE22B7E88C00028267 /* MKMapPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFE6BD22B7E88C00028267 /* MKMapPointExtensions.swift */; };
@@ -137,6 +139,8 @@
 		B296DF43228B5C4000640AB1 /* UIAlertActionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertActionExtensions.swift; sourceTree = "<group>"; };
 		B296DF44228B5C4000640AB1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B296DF72228B5D0A00640AB1 /* SCPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A3811E27555A5F001C2939 /* ByteCountFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCountFormatterExtensions.swift; sourceTree = "<group>"; };
+		B2A3812027555A87001C2939 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		B2AFE225234399860015AE79 /* CGRectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
 		B2AFE2292343ABCC0015AE79 /* CGRectExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensionsTests.swift; sourceTree = "<group>"; };
 		B2AFE6BD22B7E88C00028267 /* MKMapPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapPointExtensions.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				B296DF32228B5C3F00640AB1 /* ArrayExtensions.swift */,
 				B296DF35228B5C3F00640AB1 /* BundleExtensions.swift */,
+				B2A3811E27555A5F001C2939 /* ByteCountFormatterExtensions.swift */,
 				84262F96229F1015006BD2A7 /* CAKeyframeAnimationExtensions.swift */,
 				B296DF2E228B5C3F00640AB1 /* CGPointExtensions.swift */,
 				B2AFE225234399860015AE79 /* CGRectExtensions.swift */,
@@ -206,6 +211,7 @@
 				B296DF26228B5C3E00640AB1 /* DateFormatterExtensions.swift */,
 				B296DF3E228B5C4000640AB1 /* DoubleExtensions.swift */,
 				B2CD1B7A26950E7C00790BFB /* FileHandleExtensions.swift */,
+				B2A3812027555A87001C2939 /* FileManagerExtensions.swift */,
 				B2EC358922D7B5E400327A2C /* IntExtensions.swift */,
 				17C09BC624B762C6004AFF62 /* JSONDecoderExtensions.swift */,
 				17C09BC724B762C7004AFF62 /* JSONEncoderExtensions.swift */,
@@ -377,7 +383,9 @@
 				84EF435F238493F20068E984 /* UILayoutPriorityExtensions.swift in Sources */,
 				B247AFF525409876006F8F51 /* MirrorExtensions.swift in Sources */,
 				B296DF50228B5C4000640AB1 /* CIFilterExtensions.swift in Sources */,
+				B2A3811F27555A5F001C2939 /* ByteCountFormatterExtensions.swift in Sources */,
 				B296DF47228B5C4000640AB1 /* MKCoordinateRegionExtensions.swift in Sources */,
+				B2A3812127555A87001C2939 /* FileManagerExtensions.swift in Sources */,
 				84EF434C237DF8520068E984 /* UIButtonExtensions.swift in Sources */,
 				B296DF6A228B5C4000640AB1 /* UIViewExtensions.swift in Sources */,
 				B296DF4F228B5C4000640AB1 /* CLLocationExtensions.swift in Sources */,
