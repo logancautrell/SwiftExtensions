@@ -27,10 +27,6 @@ public extension UIViewController {
         present(alertVC, animated: true, completion: completion)
     }
 
-    func presentSupportPageViewController() {
-        showSafariViewController(urlString: "https://support.sentera.com/portal/home")
-    }
-
     func presentVideo(avAsset: AVAsset) {
         let item = AVPlayerItem(asset: avAsset)
         let player = AVPlayer(playerItem: item)
