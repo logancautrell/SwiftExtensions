@@ -248,3 +248,13 @@ public extension UIImage {
         }
     }
 }
+
+public extension UIImage {
+    func resize(size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let image = renderer.image { (context) in
+            self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: size))
+        }
+        return image
+    }
+}
