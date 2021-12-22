@@ -99,4 +99,10 @@ public extension UIDevice {
 
         return mapToDevice(identifier: identifier)
     }()
+
+    static let icon: UIImage = {
+        UIDevice.current.userInterfaceIdiom == .pad ?
+            (UIImage(systemName: "ipad") ?? UIImage()) :
+            (UIImage(systemName: "iphone") ?? UIImage())
+    }()
 }

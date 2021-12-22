@@ -5,6 +5,7 @@
 //  Copyright © 2021 Sentera. All rights reserved.
 //
 
+import CoreLocation
 import CoreServices
 import UIKit
 import VideoToolbox
@@ -54,20 +55,82 @@ public extension UIImage {
 public enum ImageIOMetadataKeys: String {
     case relativeAltitudeKey = "RelativeAltitude"
     case gimbalYawDegreeKey = "GimbalYawDegree"
+    case bandNameKey = "BandName"
+    case makeKey = "Make"
+    case focalLengthKey = "FocalLength"
 }
 
 public extension UIImage {
 
-    static func imageGPSOnlyPropertyDictionary(fileUrl url: URL) -> [String: Any]? {
-        guard let data = NSData(contentsOf: url) else {
+    // MARK: EXIF Helpers
+
+    static func makeName(forImageAt url: URL) -> String? {
+        imagePropertyDictionary(fileUrl: url)?[ImageIOMetadataKeys.makeKey.rawValue] as? String
+    }
+
+    static func focalLength(forImageAt url: URL) -> Double? {
+        imagePropertyDictionary(fileUrl: url)?[ImageIOMetadataKeys.focalLengthKey.rawValue] as? Double
+    }
+
+    //swiftlint:disable force_cast
+    static func bandName(forImageAt url: URL) -> String? {
+        guard let tags = imageMetadataTags(fileUrl: url) else {
             return nil
         }
 
-        let bytes = data.bytes.assumingMemoryBound(to: UInt8.self)
+        var bandNameTagArray: Any?
+        for tag in tags {
+            // Swift has a bug where it doesn't understand core foundation types. You can't use as? or as.
+            // You must use as!. This code will never crash as CGImageMetadataCopyTags ALWAYS returns
+            // CGImageMetadataTag. Stupid swift...
+            let metadataTag = tag as! CGImageMetadataTag
+            let name = CGImageMetadataTagCopyName(metadataTag) as NSString?
+            if name?.isEqual(to: ImageIOMetadataKeys.bandNameKey.rawValue) ?? false {
+                bandNameTagArray = CGImageMetadataTagCopyValue(metadataTag)
+            }
+        }
 
-        let cfdata = CFDataCreateWithBytesNoCopy(kCFAllocatorDefault, bytes, data.count, kCFAllocatorNull)!
-        let source = CGImageSourceCreateWithData(cfdata, nil)!
-        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as NSDictionary?,
+        if let tagArray = bandNameTagArray as? [CGImageMetadataTag] {
+            var bandName = tagArray.reduce("") { result, tag -> String in
+                let value = CGImageMetadataTagCopyValue(tag) as? String ?? "unknown"
+                return result.appending("\(value), ")
+            }
+            if bandName.count > 2 {
+                bandName.removeLast(2)
+                return bandName
+            }
+        }
+        return nil
+    }
+    //swiftlint:enable force_cast
+
+    static func locationCoordinate(for url: URL) -> CLLocationCoordinate2D? {
+        guard let propertyDictionary = UIImage.imageGPSOnlyPropertyDictionary(fileUrl: url) else {
+            print("can't get imagePropertyGPSDictionary from url \(url)")
+            return nil
+        }
+        guard let lat = propertyDictionary[kCGImagePropertyGPSLatitude as String] as? Double,
+            let lon = propertyDictionary[kCGImagePropertyGPSLongitude as String] as? Double,
+            let northSouth = propertyDictionary[kCGImagePropertyGPSLatitudeRef as String] as? String,
+            let eastWest = propertyDictionary[kCGImagePropertyGPSLongitudeRef as String] as? String else {
+            print("unable to get fields")
+            return nil
+        }
+        let latitude = northSouth == "S" ? -lat : lat
+        let longitude = eastWest == "W" ? -lon : lon
+        let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        guard coord.isValid() else {
+            return nil
+        }
+        return coord
+    }
+
+    static func imageGPSOnlyPropertyDictionary(fileUrl url: URL) -> [String: Any]? {
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
+            return nil
+        }
+        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, options) as NSDictionary?,
             let gpsDictionary = properties[kCGImagePropertyGPSDictionary] as? [String: Any] else {
                 print("can't get gpsDictionary")
                 return nil
@@ -76,24 +139,24 @@ public extension UIImage {
     }
 
     static func imagePropertyDictionary(fileUrl url: URL) -> [String: Any]? {
-        guard let data = NSData(contentsOf: url) else {
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
             return nil
         }
-
-        let bytes = data.bytes.assumingMemoryBound(to: UInt8.self)
-
         var dictionary: [String: Any]?
-        let cfdata = CFDataCreateWithBytesNoCopy(kCFAllocatorDefault, bytes, data.count, kCFAllocatorNull)!
-        let source = CGImageSourceCreateWithData(cfdata, nil)!
-        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as NSDictionary?,
-            let gpsDictionary = properties[kCGImagePropertyGPSDictionary] as? [String: Any],
-            let tiffDictionary = properties[kCGImagePropertyTIFFDictionary] as? [String: Any] else {
-                print("can't get gpsDictionary")
-                return nil
-        }
+        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, options) as NSDictionary?,
+              let gpsDictionary = properties[kCGImagePropertyGPSDictionary] as? [String: Any],
+              let tiffDictionary = properties[kCGImagePropertyTIFFDictionary] as? [String: Any] else {
+                  print("can't get gpsDictionary")
+                  return nil
+              }
 
+        let exifDictionary = (properties[kCGImagePropertyExifDictionary] as? [String: Any]) ?? [String: Any]()
         dictionary = gpsDictionary
         dictionary?.merge(tiffDictionary, uniquingKeysWith: { current, _ -> Any in
+            current
+        })
+        dictionary?.merge(exifDictionary, uniquingKeysWith: { current, _ -> Any in
             current
         })
 
@@ -131,17 +194,11 @@ public extension UIImage {
 
     // swiftlint:disable force_cast
     static func metadata(fileUrl url: URL) -> [ImageIOMetadataKeys: Any] {
-        var metadataDictionary = [ImageIOMetadataKeys: Any]()
-
-        guard let data = NSData(contentsOf: url) else {
-            print("cant get file data")
-            return metadataDictionary
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
+            return [ImageIOMetadataKeys: Any]()
         }
-
-        let bytes = data.bytes.assumingMemoryBound(to: UInt8.self)
-
-        let cfdata = CFDataCreateWithBytesNoCopy(kCFAllocatorDefault, bytes, data.count, kCFAllocatorNull)!
-        let source = CGImageSourceCreateWithData(cfdata, nil)!
+        var metadataDictionary = [ImageIOMetadataKeys: Any]()
         guard let metadata = CGImageSourceCopyMetadataAtIndex(source, 0, nil) as CGImageMetadata? else {
             print("can't get metadata")
             return metadataDictionary
@@ -182,6 +239,22 @@ public extension UIImage {
         return metadataDictionary
     }
     // swiftlint:enable force_cast
+
+    private static func imageMetadataTags(fileUrl url: URL) -> NSArray? {
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
+            return nil
+        }
+        guard let metadata = CGImageSourceCopyMetadataAtIndex(source, 0, nil) as CGImageMetadata? else {
+            print("can't get metadata")
+            return nil
+        }
+        guard let tags: NSArray = CGImageMetadataCopyTags(metadata) else {
+            print("can't get metadata tags")
+            return nil
+        }
+        return tags
+    }
 }
 
 // MARK: - Custom text drawing
