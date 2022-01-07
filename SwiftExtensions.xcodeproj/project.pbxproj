@@ -57,6 +57,7 @@
 		B296DF6D228B5C7D00640AB1 /* MKMapRectExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF1E228B5C3E00640AB1 /* MKMapRectExtensionsTests.swift */; };
 		B296DF6F228B5C9400640AB1 /* CLLocationCoordinate2DExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF2C228B5C3E00640AB1 /* CLLocationCoordinate2DExtensionsTests.swift */; };
 		B296DF70228B5C9400640AB1 /* MKCoordinateRegionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF37228B5C3F00640AB1 /* MKCoordinateRegionExtensionsTests.swift */; };
+		B2A15B1D276BAD4C00A51093 /* SetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A15B1C276BAD4B00A51093 /* SetExtensions.swift */; };
 		B2A3811F27555A5F001C2939 /* ByteCountFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A3811E27555A5F001C2939 /* ByteCountFormatterExtensions.swift */; };
 		B2A3812127555A87001C2939 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A3812027555A87001C2939 /* FileManagerExtensions.swift */; };
 		B2AFE226234399860015AE79 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFE225234399860015AE79 /* CGRectExtensions.swift */; };
@@ -133,6 +134,7 @@
 		B296DF42228B5C4000640AB1 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		B296DF44228B5C4000640AB1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B296DF72228B5D0A00640AB1 /* SCPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A15B1C276BAD4B00A51093 /* SetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExtensions.swift; sourceTree = "<group>"; };
 		B2A3811E27555A5F001C2939 /* ByteCountFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCountFormatterExtensions.swift; sourceTree = "<group>"; };
 		B2A3812027555A87001C2939 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		B2AFE225234399860015AE79 /* CGRectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				B296DF38228B5C3F00640AB1 /* NSMutableAttributedStringExtensions.swift */,
 				B2EC358722D7B5B100327A2C /* NumberFormatterExtensions.swift */,
 				B2DF06CC24F5BFA600F51134 /* ProcessInfoExtensions.swift */,
+				B2A15B1C276BAD4B00A51093 /* SetExtensions.swift */,
 				B296DF20228B5C3E00640AB1 /* StringExtensions.swift */,
 				843F7EB5241001BD00634F0D /* StringExtensionsTests.swift */,
 				B296DEA9228B5B2B00640AB1 /* SwiftExtensions.h */,
@@ -381,6 +384,7 @@
 				B296DF6A228B5C4000640AB1 /* UIViewExtensions.swift in Sources */,
 				B296DF4F228B5C4000640AB1 /* CLLocationExtensions.swift in Sources */,
 				B28428F1266856D70018C8A1 /* URLExtensions.swift in Sources */,
+				B2A15B1D276BAD4C00A51093 /* SetExtensions.swift in Sources */,
 				B296DF45228B5C4000640AB1 /* MKMapRectExtensions.swift in Sources */,
 				B296DF5C228B5C4000640AB1 /* DataExtensions.swift in Sources */,
 				B296DF49228B5C4000640AB1 /* MKMapViewExtensions.swift in Sources */,

@@ -23,6 +23,22 @@ public extension MKMapRect {
         return rect
     }
 
+    static func mapRect(from coordinates: [CLLocationCoordinate2D]) -> MKMapRect {
+        guard let coordinate = coordinates.first else {
+            return MKMapRect.null
+        }
+
+        let size = MKMapSize(width: 0, height: 0)
+        var rect = MKMapRect(origin: MKMapPoint(coordinate), size: size)
+
+        coordinates.forEach { coordinate in
+            let point = MKMapPoint(coordinate)
+            let newRect = MKMapRect(origin: point, size: size)
+            rect = rect.union(newRect)
+        }
+        return rect
+    }
+
     static func mapRect(for coordinates: [CLLocationCoordinate2D], insetPercentage: Double = 0.1, minRegionSpan: CLLocationDegrees = 0.1) -> MKMapRect {
         guard let coordinate = coordinates.first else {
             return MKMapRect.null
