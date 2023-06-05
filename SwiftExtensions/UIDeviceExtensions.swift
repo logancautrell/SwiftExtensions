@@ -121,4 +121,8 @@ public extension UIDevice {
             (UIImage(systemName: "ipad") ?? UIImage()) :
             (UIImage(systemName: "iphone") ?? UIImage())
     }()
+
+    static var longDescription: String {
+        "\(UIDevice.utsName); \(UIDevice.current.model); \(UIDevice.modelName); \(UIDevice.current.systemVersion); \(UIDevice.current.systemName); isSimulator(\(UIDevice.current.isSimulator))"
+    }
 }
