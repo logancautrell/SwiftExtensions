@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		17C09BC924B762C7004AFF62 /* JSONEncoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C09BC724B762C7004AFF62 /* JSONEncoderExtensions.swift */; };
 		17C36D9C24BF3BEF0033667B /* NotificationCenterAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C36D9B24BF3BEF0033667B /* NotificationCenterAdditionsTests.swift */; };
 		84262F97229F1015006BD2A7 /* CAKeyframeAnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84262F96229F1015006BD2A7 /* CAKeyframeAnimationExtensions.swift */; };
-		843F7EB6241001BD00634F0D /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F7EB5241001BD00634F0D /* StringExtensionsTests.swift */; };
 		845A3753251D07B3008E48D9 /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A3752251D07B3008E48D9 /* UIBezierPathExtensions.swift */; };
 		847DFC8525795F3F001ED934 /* MKAnnotationViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFC8425795F3F001ED934 /* MKAnnotationViewExtensions.swift */; };
 		84AE6B5E24D8C2D700D580D9 /* UITableViewHeaderFooterViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B5D24D8C2D700D580D9 /* UITableViewHeaderFooterViewExtensions.swift */; };
@@ -87,7 +86,6 @@
 		17C09BC724B762C7004AFF62 /* JSONEncoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoderExtensions.swift; sourceTree = "<group>"; };
 		17C36D9B24BF3BEF0033667B /* NotificationCenterAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterAdditionsTests.swift; sourceTree = "<group>"; };
 		84262F96229F1015006BD2A7 /* CAKeyframeAnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAKeyframeAnimationExtensions.swift; sourceTree = "<group>"; };
-		843F7EB5241001BD00634F0D /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		845A3752251D07B3008E48D9 /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensions.swift; sourceTree = "<group>"; };
 		847DFC8425795F3F001ED934 /* MKAnnotationViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAnnotationViewExtensions.swift; sourceTree = "<group>"; };
 		84AE6B5D24D8C2D700D580D9 /* UITableViewHeaderFooterViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderFooterViewExtensions.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				B2EC358722D7B5B100327A2C /* NumberFormatterExtensions.swift */,
 				B2DF06CC24F5BFA600F51134 /* ProcessInfoExtensions.swift */,
 				B2A15B1C276BAD4B00A51093 /* SetExtensions.swift */,
-				843F7EB5241001BD00634F0D /* StringExtensionsTests.swift */,
 				B296DEA9228B5B2B00640AB1 /* SwiftExtensions.h */,
 				845A3752251D07B3008E48D9 /* UIBezierPathExtensions.swift */,
 				84EF434B237DF8520068E984 /* UIButtonExtensions.swift */,
@@ -432,7 +429,6 @@
 				B296DF70228B5C9400640AB1 /* MKCoordinateRegionExtensionsTests.swift in Sources */,
 				B2AFE22A2343ABCC0015AE79 /* CGRectExtensionsTests.swift in Sources */,
 				B296DF6D228B5C7D00640AB1 /* MKMapRectExtensionsTests.swift in Sources */,
-				843F7EB6241001BD00634F0D /* StringExtensionsTests.swift in Sources */,
 				B296DF6F228B5C9400640AB1 /* CLLocationCoordinate2DExtensionsTests.swift in Sources */,
 				1776361B24042A5E00246A8E /* UIImageExtensionsTests.swift in Sources */,
 			);
