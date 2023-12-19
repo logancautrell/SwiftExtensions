@@ -30,7 +30,6 @@
 		B296DF4A228B5C4000640AB1 /* CIContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF22228B5C3E00640AB1 /* CIContextExtensions.swift */; };
 		B296DF4B228B5C4000640AB1 /* NSLayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF23228B5C3E00640AB1 /* NSLayoutConstraintExtensions.swift */; };
 		B296DF4D228B5C4000640AB1 /* NotificationCenterAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF25228B5C3E00640AB1 /* NotificationCenterAdditions.swift */; };
-		B296DF4E228B5C4000640AB1 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF26228B5C3E00640AB1 /* DateFormatterExtensions.swift */; };
 		B296DF4F228B5C4000640AB1 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF27228B5C3E00640AB1 /* CLLocationExtensions.swift */; };
 		B296DF50228B5C4000640AB1 /* CIFilterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF28228B5C3E00640AB1 /* CIFilterExtensions.swift */; };
 		B296DF51228B5C4000640AB1 /* UICollectionViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296DF29228B5C3E00640AB1 /* UICollectionViewCellExtensions.swift */; };
@@ -105,7 +104,6 @@
 		B296DF22228B5C3E00640AB1 /* CIContextExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIContextExtensions.swift; sourceTree = "<group>"; };
 		B296DF23228B5C3E00640AB1 /* NSLayoutConstraintExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtensions.swift; sourceTree = "<group>"; };
 		B296DF25228B5C3E00640AB1 /* NotificationCenterAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterAdditions.swift; sourceTree = "<group>"; };
-		B296DF26228B5C3E00640AB1 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		B296DF27228B5C3E00640AB1 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		B296DF28228B5C3E00640AB1 /* CIFilterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIFilterExtensions.swift; sourceTree = "<group>"; };
 		B296DF29228B5C3E00640AB1 /* UICollectionViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtensions.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				B296DF36228B5C3F00640AB1 /* CVPixelBufferExtensions.swift */,
 				B296DF34228B5C3F00640AB1 /* DataExtensions.swift */,
 				B2D8589923BE6972000B4E15 /* DateComponentsExtensions.swift */,
-				B296DF26228B5C3E00640AB1 /* DateFormatterExtensions.swift */,
 				B296DF3E228B5C4000640AB1 /* DoubleExtensions.swift */,
 				B2CD1B7A26950E7C00790BFB /* FileHandleExtensions.swift */,
 				B2A3812027555A87001C2939 /* FileManagerExtensions.swift */,
@@ -399,7 +396,6 @@
 				B296DF4D228B5C4000640AB1 /* NotificationCenterAdditions.swift in Sources */,
 				B296DF65228B5C4000640AB1 /* CIImageExtensions.swift in Sources */,
 				84AE6B5E24D8C2D700D580D9 /* UITableViewHeaderFooterViewExtensions.swift in Sources */,
-				B296DF4E228B5C4000640AB1 /* DateFormatterExtensions.swift in Sources */,
 				84262F97229F1015006BD2A7 /* CAKeyframeAnimationExtensions.swift in Sources */,
 				B296DF63228B5C4000640AB1 /* UIDeviceExtensions.swift in Sources */,
 				B2AFE6BE22B7E88C00028267 /* MKMapPointExtensions.swift in Sources */,
